@@ -10,7 +10,7 @@
           <script src="//code.jquery.com/jquery-1.9.1.js"></script>
         </head>
         <body>
-          <h3>📦 Types d'artefacts disponibles</h3>
+          <h3>Test wudget gadget</h3>
           <button id="goBtn">🟢 Lister les artefacts du module</button>
           <pre id="result"></pre>
           <script src="js/widget_terms.js"></script>

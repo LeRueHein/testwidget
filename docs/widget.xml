@@ -1,21 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module specificationVersion="2.0">
-  <ModulePrefs title="Test Test widget" height="150">
-    <Require feature="com.ibm.rdm.rm.api"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<Module specVersion="2.0">
+  <ModulePrefs title="TestMinimal" height="100">
+    <!-- seule la feature opensocial-2.0 est requise -->
+    <Require feature="opensocial-2.0"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <html>
-        <head>
-          <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-        </head>
-        <body>
-          <h3>📦test widget</h3>
-          <button id="goBtn">🟢 Lister les artefacts du module</button>
-          <pre id="result"></pre>
-          <script src="js/widget.js"></script>
-        </body>
-      </html>
+      <h3>Hello from DNG!</h3>
     ]]>
   </Content>
 </Module>

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module specificationVersion="2.0">
-  <ModulePrefs title="Test Widget" height="150">
-    <!-- Seule la feature standard OS 2.0 -->
+  <ModulePrefs title="Test Test widget" height="150">
+    <!-- seule la feature OpenSocial 2.0 est requise -->
     <Require feature="opensocial-2.0"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <h3>📦 Test minimal</h3>
+      <h3>📦 Test widget</h3>
+      <button id="goBtn">🟢 Lister les artefacts du module</button>
+      <pre id="result"></pre>
+      <!-- Chargement de jQuery en HTTPS -->
+      <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+      <!-- Votre script métier -->
+      <script src="js/widget.js"></script>
     ]]>
   </Content>
 </Module>

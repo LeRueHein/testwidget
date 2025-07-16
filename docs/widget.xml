@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module xmlns="http://www.opensocial.org/2.0" specificationVersion="2.0">
-  <ModulePrefs title="TestMinimal" height="100">
+  <ModulePrefs title="TestWithScripts" height="200">
     <Require feature="opensocial-2.0"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <div>✅ Minimal OK</div>
+      <h3>📦 Avec jQuery</h3>
+      <!-- Chargez d’abord jQuery -->
+      <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     ]]>
   </Content>
 </Module>

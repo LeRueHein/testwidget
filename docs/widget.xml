@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module specificationVersion="2.0">
-  <ModulePrefs title="Lister les types d'artefacts" height="150">
+  <ModulePrefs title="Test Test widget" height="150">
     <Require feature="com.ibm.rdm.rm.api"/>
   </ModulePrefs>
   <Content type="html">
@@ -10,7 +10,7 @@
           <script src="//code.jquery.com/jquery-1.9.1.js"></script>
         </head>
         <body>
-          <h3>📦 Types d'artefacts disponibles</h3>
+          <h3>📦test widget</h3>
           <button id="goBtn">🟢 Lister les artefacts du module</button>
           <pre id="result"></pre>
           <script src="js/widget.js"></script>

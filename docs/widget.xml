@@ -13,7 +13,7 @@
           <h3>📦 Types d'artefacts disponibles</h3>
           <button id="goBtn">🟢 Lister les artefacts du module</button>
           <pre id="result"></pre>
-          <script src="js/widget_terms.js"></script>
+          <script src="js/widget.js"></script>
         </body>
       </html>
     ]]>

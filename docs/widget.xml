@@ -12,7 +12,7 @@
       <!-- Chargement de jQuery en HTTPS -->
       <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
       <!-- Votre script métier -->
-      <script src="js/widget.js"></script>
+      <script src="widget.js"></script>
     ]]>
   </Content>
 </Module>

@@ -1,18 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module xmlns="http://www.opensocial.org/2.0"
-        specificationVersion="2.0">
-  <ModulePrefs title="Test Widget Final" height="150">
+<Module xmlns="http://www.opensocial.org/2.0" specificationVersion="2.0">
+  <ModulePrefs title="Test Widget Final" 
+               height="150" 
+               width="300"
+               author="Your Name"
+               description="Widget de test">
     <Require feature="opensocial-2.0"/>
+    <Require feature="dynamic-height"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <div style="padding:10px; background:#e0ffe0; color:#060;">
-        ✅ Inline content OK!
-      </div>
-      <script>
-        console.log('🔧 Inline widget initialized');
-      </script>
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          .test-widget {
+            padding: 15px;
+            background: #e0ffe0;
+            color: #060;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="test-widget">
+          <h3>✅ Widget Test</h3>
+          <p>Si vous voyez ce message, le widget fonctionne !</p>
+          <div id="status">Initialisation...</div>
+        </div>
+        
+        <script>
+          try {
+            console.log('🔧 Widget initialization started');
+            document.getElementById('status').innerHTML = 'Widget chargé avec succès !';
+            
+            // Test de gadgets API si disponible
+            if (typeof gadgets !== 'undefined') {
+              console.log('✅ Gadgets API disponible');
+              gadgets.util.registerOnLoadHandler(function() {
+                console.log('✅ Widget loaded via gadgets API');
+              });
+            } else {
+              console.log('⚠️ Gadgets API non disponible');
+            }
+          } catch (error) {
+            console.error('❌ Erreur widget:', error);
+            document.getElementById('status').innerHTML = 'Erreur: ' + error.message;
+          }
+        </script>
+      </body>
+      </html>
     ]]>
   </Content>
 </Module>
-

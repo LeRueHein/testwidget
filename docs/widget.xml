@@ -1,57 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module xmlns="http://www.opensocial.org/2.0" specificationVersion="2.0">
-  <ModulePrefs title="Test Widget Final" 
+  <ModulePrefs title="Test Widget DOORS" 
                height="150" 
-               width="300"
-               author="Your Name"
-               description="Widget de test">
+               width="300">
     <Require feature="opensocial-2.0"/>
-    <Require feature="dynamic-height"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <style>
-          .test-widget {
-            padding: 15px;
-            background: #e0ffe0;
-            color: #060;
-            border: 2px solid #4CAF50;
-            border-radius: 5px;
-            font-family: Arial, sans-serif;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="test-widget">
-          <h3>✅ Widget Test</h3>
-          <p>Si vous voyez ce message, le widget fonctionne !</p>
-          <div id="status">Initialisation...</div>
-        </div>
-        
-        <script>
-          try {
-            console.log('🔧 Widget initialization started');
-            document.getElementById('status').innerHTML = 'Widget chargé avec succès !';
-            
-            // Test de gadgets API si disponible
-            if (typeof gadgets !== 'undefined') {
-              console.log('✅ Gadgets API disponible');
-              gadgets.util.registerOnLoadHandler(function() {
-                console.log('✅ Widget loaded via gadgets API');
-              });
-            } else {
-              console.log('⚠️ Gadgets API non disponible');
-            }
-          } catch (error) {
-            console.error('❌ Erreur widget:', error);
-            document.getElementById('status').innerHTML = 'Erreur: ' + error.message;
-          }
-        </script>
-      </body>
-      </html>
+      <div style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4); 
+                  color: white; 
+                  padding: 20px; 
+                  font-family: Arial, sans-serif; 
+                  border-radius: 10px; 
+                  text-align: center;
+                  box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <h2 style="margin: 0 0 10px 0;">🎉 SUCCESS!</h2>
+        <p style="margin: 0;">Widget OpenSocial fonctionne dans DOORS Next</p>
+      </div>
+      <script>
+        console.log('Widget loaded successfully!');
+        if (typeof gadgets !== 'undefined' && gadgets.window) {
+          gadgets.window.adjustHeight();
+        }
+      </script>
     ]]>
   </Content>
 </Module>

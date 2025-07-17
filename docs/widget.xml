@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module xmlns="http://www.opensocial.org/2.0" specificationVersion="2.0">
-  <ModulePrefs title="TestWithScripts" height="200">
+  <ModulePrefs
+      title="Gadget RM Contextuel"
+      height="200">
+    <!-- Définition d’une préférence texte -->
+    <UserPref name="maxItems" datatype="integer" default="10">
+      <DisplayName>Nombre max d’artefacts</DisplayName>
+    </UserPref>
+    <!-- Besoin de l’API RPC OSLC -->
     <Require feature="opensocial-2.0"/>
+    <Require feature="rpc"/>
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <h3>📦 Avec jQuery</h3>
-      <!-- Chargez d’abord jQuery -->
-      <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+      <div id="root">Chargement…</div>
+      <script>
+        // On attend que le gadget soit prêt
+        gadgets.util.registerOnLoadHandler(function() {
+          // Récupère la préférence utilisateur
+          var prefs = new gadgets.Prefs();
+          var max = prefs.getInt('maxItems');
+
+          // Récupère l’artefact sélectionné
+          require(['rm/js/mashup-utils'], function(utils) {
+            utils.getSelectedArtifact().then(function(art) {
+              var uri = art.uri;
+              // Interroge l’OSLC pour lister les X premiers artefacts du même module
+              var queryUrl = uri.replace(/requirements\/.*/, 
+                'requirements?oslc.select=identifier, title&oslc.where=module="' + encodeURIComponent(art.containerUri) + '"&oslc.pageSize=' + max);
+              gadgets.io.makeRequest(queryUrl, function(response) {
+                if (response.rc === 200) {
+                  var data = JSON.parse(response.data);
+                  var html = '<ul>';
+                  data.members.forEach(function(item) {
+                    html += '<li>' + item.identifier + ' – ' + item.title + '</li>';
+                  });
+                  html += '</ul>';
+                  document.getElementById('root').innerHTML = html;
+                  gadgets.window.adjustHeight(document.getElementById('root').offsetHeight + 20);
+                }
+              }, { authz: 'signed' });
+            });
+          });
+        });
+      </script>
     ]]>
   </Content>
 </Module>
